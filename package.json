@@ -1,9 +1,8 @@
 {
   "name": "conexion_agraria",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "start": "serve -s conexion_agraria",
+    "start": "serve -s .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,7 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2",
     "serve": "^14.0.1"
   }
 }
