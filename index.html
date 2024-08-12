@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="assets/img/icons/icons8-planta-94.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <title>CONEXION AGRARIA</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/logos/logo_blanco.png" alt="" width="150px" class="d-inline-block align-text-top">
+      </a>
+      <div class="d-flex" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a id="btn_start" class="nav-link active btn-start contact-form-trigger" href="#" data-bs-toggle="modal"
+              data-bs-target="#gameModal">Contactanos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row align-items-center">
+    <div class="col-md-12 position-relative text-center">
+      <video autoplay loop muted class="mb-5" style="width: 100%;">
+        <source src="assets/video/37664-418005769_medium.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <h1 class="custom-text">Sembrando futuro, cosechando éxito.</h1>
+      <p class="custom-text2">Creemos en el potencial sin explotar de la tierra colombiana. <br> Impulsamos el
+        desarrollo
+        rural, generando empleo y cultivando un futuro próspero para todos.</p>
+      <a href="#contGame" class="scroll-down-arrow">
+        <img src="assets/img/icons/icons8-planta-94.png" alt="Scroll down" class="scroll-down-img">
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4 class="row mb-3">Destacado</h4>
+  </div>
+
+  <div class="container" id="contGame"></div>
+
+
+  <div class="row align-items-center">
+    <div class="col-md-12 position-relative text-center">
+      <img src="assets/img/background/sonriente.jpg" class="img-fluid mb-4" alt="">
+      <h2 class="position-absolute top-50 start-50 sonriente" style="color: white;">Uniendo tierras, creando
+        oportunidades.</h2>
+    </div>
+  </div>
+
+  <div class="modal fade custom-modal" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          <div id="modal-image-container"></div>
+          <div class="contCard">
+            <div id="cardInfo">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 id="modal-title" class="mb-5 text-center"></h2>
+
+                    <div class="swiper-container modal-swiper-container">
+                      <div class="swiper-wrapper" id="modal-carousel-inner"></div>
+                      <div class="tranding-slider-control">
+                        <div class="swiper-button-prev slider-arrow">
+                          <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-button-next slider-arrow">
+                          <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+
+                    <div class="modal-description-container mt-4">
+                      <p id="modal-description" class="modal-info"></p>
+                    </div>
+
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <p id="modal-departamento" class="modal-info mb-3"></p>
+                        <p id="modal-municipio" class="modal-info mb-3"></p>
+                        <p id="modal-direccion" class="modal-info mb-3"></p>
+                        <p id="modal-clima" class="modal-info mb-3"></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p id="modal-medidas" class="modal-info mb-3"></p>
+                        <p id="modal-precio-metroCuadrado" class="modal-info mb-3"></p>
+                        <p id="modal-precio-arriendo" class="modal-info mb-3"></p>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary me-interesa-button" data-predio-id="">Me interesa</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="contactFormSection" style="display:none;">
+              <h5 class="modal-title" id="contactModalLabel">Contactanos</h5>
+              <form id="contactForm" class="modal-form">
+                <input type="hidden" id="predioId" name="predioId" value="">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre y Apellido</label>
+                  <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">El nombre y apellido deben tener entre 3 y 50 caracteres y solo contener letras.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Celular</label>
+                  <input type="text" pattern="[0-9]+" class="form-control" id="phone" name="phone" required>
+                  <div class="invalid-feedback">Por favor ingrese solo números.</div>
+              </div>
+              
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="text-muted iva">&copy; 2024 Conexión Agraria. All rights reserved.</span>
+      </div>
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#twitter"></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#instagram"></use>
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook"></use>
+            </svg></a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/Models/Cards.js"></script>
+  <script src="assets/js/firebase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/form.js"></script>
+
+</body>
+
+</html>

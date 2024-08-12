@@ -1,0 +1,378 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.contCard {
+  cursor: pointer;
+}
+
+.navbar {
+  background-color: #000 !important;
+}
+
+.custom-text {
+  position: absolute;
+  top: 70%;
+  margin-left: 80px;
+  text-align: left;
+  color: white;
+
+}
+
+#btn_start{
+  color: white;
+  font-size: 1.7rem;
+}
+
+.custom-text2 {
+  position: absolute;
+  top: 76%;
+  margin-left: 80px;
+  text-align: left;
+  color: white;
+  font-size: 1.5rem;
+
+}
+
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 150px;
+  /* Ajusta la distancia desde abajo */
+  right: 20%;
+  /* Ajusta la posición horizontal */
+  transform: translateX(50%);
+  /* Centra el botón horizontalmente */
+}
+
+.scroll-down-img {
+  width: 8cap;
+  /* Tamaño del botón */
+  animation: bounce 2s infinite;
+  /* Agrega la animación de brinco */
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+    /* Posición inicial y final */
+  }
+
+  50% {
+    transform: translateY(-20px);
+    /* Posición de brinco */
+  }
+}
+
+.modal-content {
+  background-color: #f6f4f4;
+}
+.modal-description-container {
+  background-color: #c9cccf6b; /* Tono gris muy leve */
+  border-radius: 8px;       /* Bordes redondeados */
+  padding: 15px;            /* Padding */
+  margin: 25px 0;           /* Margen superior e inferior */
+  text-align: justify;      /* Texto justificado */
+}
+
+.modal-info {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+
+.form-container {
+  background-color: rgba(62, 60, 60, 0.604);
+  /* Aumenta la transparencia */
+  height: 500px; /* Ajusta la altura del formulario */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  /* Establece el ancho máximo */
+  margin: 50px;
+  /* Centra horizontalmente el formulario */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-btn-container {
+  display: inline-block;
+  /* Para que el contenedor ocupe solo el espacio necesario */
+  margin-bottom: 20px;
+  /* Agrega un margen a la izquierda para separarlo de la última card */
+  cursor: pointer;
+}
+
+
+.toggle-btn:hover {
+  color: rgb(171, 173, 171);
+  /* Cambia el color del texto al pasar el cursor sobre él */
+}
+
+#modal-carousel {
+  position: absolute;
+  top: 38%;
+  /* Ajustar el margen superior para que el contenido se vea más abajo */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  /* Reducir el tamaño de las imágenes del carrusel */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.658) !important;
+}
+
+
+/* Estilos para los input y text area */
+#contactForm input[type="text"],
+#contactForm input[type="tel"],
+#contactForm input[type="email"],
+#contactForm textarea {
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Fondo transparente con opacidad */
+  border: 1px solid #a4a3a3;
+  /* Borde opcional */
+  color: rgba(3, 3, 3, 3);
+  font-size: 15px;
+  /* Color del texto con opacidad */
+  padding: 20px;
+  /* Ajusta el relleno según sea necesario */
+  border-radius: 5px;
+  /* Borde redondeado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Sombra leve */
+  padding: 15px;
+  /* Espaciado interno */
+  margin-bottom: 20px;
+  /* Espaciado inferior */
+  width: 100%;
+  /* Ancho completo */
+}
+
+/* Aplicar texto en mayúsculas a todos los campos de entrada del formulario */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    text-transform: uppercase;
+}
+
+/* Estilos para los input al ser enfocados */
+#contactForm input[type="text"]:focus,
+#contactForm input[type="tel"]:focus,
+#contactForm input[type="email"]:focus,
+#contactForm textarea:focus {
+  background-color: white;
+  outline: none;
+  /* Quita el borde de enfoque predeterminado */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra más pronunciada al enfocar */
+}
+
+/* Estilo para el botón de enviar */
+button[type="submit"] {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Fondo semi-transparente */
+  color: #fff;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  padding: 10px 20px;
+  /* Ajusta el relleno según sea necesario */
+  border-radius: 5px;
+  /* Borde redondeado */
+  cursor: pointer;
+  /* Cambia el cursor al pasar sobre él */
+}
+
+/* Estilo para el botón de enviar al pasar el cursor sobre él */
+button[type="submit"]:hover {
+  background-color: #fafdfb !important;
+  color: #000000 !important;
+}
+
+.swiper-slide {
+  position: relative;
+}
+
+.swiper-container {
+  max-width: 70rem;
+  /* Ancho máximo del contenedor */
+  padding: 0 1rem;
+  /* Relleno horizontal */
+  margin: 0 auto;
+  /* Centrado horizontal */
+}
+
+.swiper-slide {
+  width: 60rem;
+  /* Ancho de las diapositivas */
+  height: 42rem;
+  /* Altura de las diapositivas */
+  position: relative;
+  /* Posición relativa */
+}
+
+.swiper-slide img {
+  width: 60rem;
+  /* Ancho de las imágenes */
+  height: 42rem;
+  /* Altura de las imágenes */
+  border-radius: 2rem;
+  /* Radio de borde */
+  object-fit: cover;
+  /* Ajuste del tamaño y recorte de la imagen */
+}
+
+.swiper-slide:not(:first-child) img {
+  width: 90%;
+  z-index: 0;
+
+}
+
+.swiper-slide-active img {
+  width: 100%;
+
+}
+
+.tranding-slider-control .slider-arrow::after {
+  content: '';
+}
+
+.tranding-slider-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem; /* Añadimos margen superior para separarlos del slider */
+}
+
+.tranding-slider-control .swiper-pagination {
+  position: absolute; /* Cambiamos a posición absoluta */
+  bottom: -2rem; /* Ajustamos la posición con un margen negativo */
+  left: 0; /* Ajustamos la posición a la izquierda */
+  right: 0; /* Ajustamos la posición a la derecha */
+  text-align: center; /* Centramos los botones de paginación */
+}
+
+.tranding-slider-control .swiper-button-next,
+.tranding-slider-control .swiper-button-prev {
+  position: absolute; /* Cambiamos a posición absoluta */
+  top: 50%; /* Posicionamos en el centro verticalmente */
+  transform: translateY(-50%); /* Centramos verticalmente */
+}
+
+.tranding-slider-control .swiper-button-next {
+  right: 0; /* Ajustamos la posición a la derecha */
+}
+
+.tranding-slider-control .swiper-button-prev {
+  left: 0; /* Ajustamos la posición a la izquierda */
+}
+
+.tranding-slider-control .slider-arrow ion-icon {
+  font-size: 2.5rem; /* Ajusta el tamaño del ícono */
+  color: black; /* Cambia el color del ícono a negro */
+}
+/* Estilos para el punto activo de la paginación del slider */
+.tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
+  background: black; /* Cambia el color de fondo del punto activo a negro */
+}
+.modal-info {
+  font-size: 1.2rem;
+}
+.swiper-pagination {
+  margin-bottom: 15px; /* Ajusta este valor según tu preferencia */
+}
+.invalid-feedback {
+  font-size: 1.1rem;
+  display: none;
+  color: red;
+}
+
+input:invalid + .invalid-feedback {
+  display: block;
+}
+.ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+}
+
+.ribbon span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#FF0000 0%, #FF0000 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px;
+  right: -21px;
+}
+
+/* Aumenta el tamaño de las etiquetas y textos de los inputs */
+#contactFormSection .form-label {
+  font-size: 1.6rem; /* Ajusta el tamaño según sea necesario */
+  margin-top: 1px; /* Ajusta la distancia superior del primer label */
+}
+
+#contactFormSection .form-control {
+  font-size: 2rem; /* Ajusta el tamaño según sea necesario */
+}
+
+/* Opcional: Ajusta el tamaño del título del modal */
+#contactFormSection .modal-title {
+  font-size: 3rem; /* Ajusta el tamaño según sea necesario */
+  text-align: center; /* Centra el título horizontalmente */
+  margin-top: 30px; /* Ajusta la distancia desde el borde superior del contenedor */
+
+}
+
+#contactFormSection .btn-primary {
+  font-size: 1.2rem; /* Ajusta el tamaño según sea necesario */
+}
+/* Estilos específicos para el formulario dentro del modal */
+.modal-form {
+  padding: 50px !important; /* Ajusta el relleno */
+}
+/* Estilo del botón en su estado normal */
+.btn-primary.me-interesa-button {
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1.1rem !important; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre él */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+/* Estilo del botón en el estado hover */
+.btn-primary.me-interesa-button:hover {
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto negro */
+  border: 1px solid black; /* Añade un borde negro al pasar el cursor */
+}
+
+/* Estilo del botón en el estado activo (opcional) */
+.btn-primary.me-interesa-button:active {
+  background-color: #ccc; /* Fondo gris claro al hacer clic */
+  color: black; /* Texto negro */
+}
