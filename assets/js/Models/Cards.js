@@ -6,6 +6,7 @@ class Game {
     this.URL_PROPERTIES = "https://conexion-agraria-default-rtdb.firebaseio.com/Api/Properties.json";
     this.URL_DEPARTMENTS = "https://conexion-agraria-default-rtdb.firebaseio.com/Api/Department.json";
     this.pathImg = "https://firebasestorage.googleapis.com/v0/b/conexion-agraria.appspot.com/o/predios%2F";
+    this.defaultImage = "https://via.placeholder.com/200x200.png?text=No+Image"; // URL de la imagen por defecto
 
     this.propertiesPromise = this.getDataProperties();
     this.departmentsPromise = this.getDepartments();
@@ -85,17 +86,27 @@ class Game {
 
       cardsHtml += `
         <div class="col-md-3 mb-3 ${this.contCardClass}">
-          <div class="card card-size" data-property='${JSON.stringify(property)}'>
+          <div class="card" style="border: none;">
             ${isRented ? '<div class="ribbon"><span>Arrendado</span></div>' : ''}
-            <img 
-              class="card-img-top" 
-              src="${this.pathImg}${encodeURIComponent(firstImage)}?alt=media" 
-              alt="Card image cap"
-            >
+            <div class="image-container">
+              <img 
+                class="card-img-top" 
+                src="${this.pathImg}${encodeURIComponent(firstImage)}?alt=media" 
+                alt="Card image cap"
+                style="border-radius: 15px; object-fit: cover; width: 100%; height: 200px;"
+                onerror="this.onerror=null; this.src='${this.defaultImage}';"
+              >
+            </div>
             <div class="card-body">
-              <h5 class="card-title" style="font-size: 1.2rem;"><strong>${property.nombre}</strong></h5>
-              <p class="card-text" style="font-size: 1rem; margin-bottom: 0.2rem;">Departamento: ${departmentName}</p>
-              <p class="card-text" style="font-size: 1rem; margin-bottom: 0.2rem;">Municipio: ${municipalityName}</p>
+              <!-- Nombre de la propiedad con un tamaño de fuente más grande -->
+              <h5 class="card-title" style="font-size: 1.8rem; font-weight: bold;">
+                ${property.nombre}
+              </h5>
+              <!-- Municipio y departamento en la misma fila, con fuente más pequeña, cerca del nombre y en color gris -->
+              <p class="card-text" style="font-size: 0.9rem; margin-top: -5px; color: grey; margin-bottom: 0.5rem;">
+                ${municipalityName}, ${departmentName}
+              </p>
+              <!-- Otros datos de la propiedad -->
               <p class="card-text" style="font-size: 1rem; margin-bottom: 0.2rem;">Medida: ${property.medida}</p>
               <p class="card-text" style="font-size: 1rem; margin-bottom: 0.2rem;">Precio Arriendo: ${property.precio_arriendo}</p>
             </div>
@@ -105,6 +116,8 @@ class Game {
 
     this.contGame.innerHTML = `<div class="row">${cardsHtml}</div>`;
   }
+
+
 
   addClickEventToCards() {
     const cards = this.contGame.querySelectorAll('.card');
@@ -144,14 +157,14 @@ class Game {
           }
 
           modalTitle.textContent = property.nombre;
-          modalDireccion.innerHTML = `<ion-icon name="location-outline"></ion-icon> <strong>Dirección:</strong> ${property.direccion}`;
-          modalDepartamento.innerHTML = `<ion-icon name="business-outline"></ion-icon> <strong>Departamento:</strong> ${departmentName}`;
-          modalMunicipio.innerHTML = `<ion-icon name="home-outline"></ion-icon> <strong>Municipio:</strong> ${municipalityName}`;
-          modalClima.innerHTML = `<ion-icon name="partly-sunny-outline"></ion-icon> <strong>Clima:</strong> ${property.clima}`;
-          modalDescription.innerHTML = `<ion-icon name="document-text-outline"></ion-icon> <strong>Descripción:</strong> <br>${property.descripcion}`;
-          modalMedidas.innerHTML = `<ion-icon name="cube-outline"></ion-icon> <strong>Medida:</strong> ${property.medida}`;
-          modalPreciometroCuadrado.innerHTML = `<ion-icon name="cash-outline"></ion-icon> <strong>Precio por metro cuadrado:</strong> ${property.precio_metro_cuadrado || "Desconocido"}`;
-          modalPrecioArriendo.innerHTML = `<ion-icon name="cash-outline"></ion-icon> <strong>Precio de arriendo:</strong> ${property.precio_arriendo}`;
+          modalDireccion.innerHTML = `<ion-icon name="location-outline"></ionicon> <strong>Dirección:</strong> ${property.direccion}`;
+          modalDepartamento.innerHTML = `<ion-icon name="business-outline"></ionicon> <strong>Departamento:</strong> ${departmentName}`;
+          modalMunicipio.innerHTML = `<ion-icon name="home-outline"></ionicon> <strong>Municipio:</strong> ${municipalityName}`;
+          modalClima.innerHTML = `<ion-icon name="partly-sunny-outline"></ionicon> <strong>Clima:</strong> ${property.clima}`;
+          modalDescription.innerHTML = `<ion-icon name="document-text-outline"></ionicon> <strong>Descripción:</strong> <br>${property.descripcion}`;
+          modalMedidas.innerHTML = `<ion-icon name="cube-outline"></ionicon> <strong>Medida:</strong> ${property.medida}`;
+          modalPreciometroCuadrado.innerHTML = `<ion-icon name="cash-outline"></ionicon> <strong>Precio por metro cuadrado:</strong> ${property.precio_metro_cuadrado || "Desconocido"}`;
+          modalPrecioArriendo.innerHTML = `<ion-icon name="cash-outline"></ionicon> <strong>Precio de arriendo:</strong> ${property.precio_arriendo}`;
 
           const meInteresaButton = document.querySelector('.me-interesa-button');
           meInteresaButton.dataset.predioId = property.id;
@@ -178,50 +191,24 @@ class Game {
             loop: true,
             slidesPerView: 'auto',
             coverflowEffect: {
-              rotate: 0,
+              rotate: 50,
               stretch: 0,
               depth: 100,
-              modifier: 2.5,
+              modifier: 1,
+              slideShadows: true,
             },
             pagination: {
               el: '.swiper-pagination',
-              clickable: true,
-              renderBullet: function (index, className) {
-                return '<span class="' + className + '"></span>';
-              },
             },
             navigation: {
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev',
             },
-            threshold: 4,
-            speed: 900,
-            initialSlide: property.imagenes.length - 1,
           });
         });
       }
     });
   }
-
-
-  addMeInteresaEvent() {
-    const meInteresaButton = document.querySelector('.me-interesa-button');
-    meInteresaButton.addEventListener('click', () => {
-      const predioId = meInteresaButton.dataset.predioId;
-      this.cleanContactForm(predioId);
-      document.getElementById('cardInfo').style.display = 'none';
-      document.getElementById('contactFormSection').style.display = 'block';
-    });
-  }
-
-  cleanContactForm(predioId) {
-    const contactForm = document.getElementById('contactForm');
-    contactForm.reset(); // Limpiar el formulario
-    document.getElementById('predioId').value = predioId;
-  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const game = new Game('contGame');
-  game.addMeInteresaEvent();
-});
+const game = new Game("contGame");
