@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.ico" type="assets/img/icons/icons8-planta-94.ico" />
+  <link rel="icon" href="assets/img/icons/icons8-planta-94.ico" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
@@ -15,40 +15,59 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="assets/img/logos/logo_blanco.png" alt="" width="150px" class="d-inline-block align-text-top">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logos/logo_blanco.png" alt="" width="110px" class="d-inline-block align-text-top">
       </a>
 
       <div class="search-wrapper mx-auto">
         <input type="text" id="keywordInput" placeholder="Buscar...">
         <button id="searchButton" class="search-icon">
-            <i class="fa fa-search"></i>
+          <i class="fa fa-search"></i>
         </button>
       </div>
 
-      <div class="d-flex" id="navbarSupportedContent">
+      <div class="d-flex">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a id="aboutUsButton" class="nav-link" href="nosotros.html">¿Quiénes somos, sumercé?</a>
+          </li>
           <li class="nav-item">
             <a id="btn_start" class="nav-link active btn-start contact-form-trigger" href="#" data-bs-toggle="modal"
               data-bs-target="#gameModal">Contáctanos</a>
           </li>
+          <!-- Botón de inicio de sesión o perfil -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"> <img src="assets/img/icons/icono_campecino.png" alt="Icono de Perfil"
+                class="profile-icon">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="#" id="loginButton">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="#" id="registerButton">Registrarse</a></li>
+              <li><a class="dropdown-item" href="#" id="profileButton" style="display: none;">Ver Perfil</a></li>
+              <li><a class="dropdown-item" href="#" id="logoutButton" style="display: none;">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+
         </ul>
       </div>
     </div>
-</nav>
+  </nav>
+
 
   <div class="video-banner">
     <div class="overlay"></div>
     <video autoplay loop muted playsinline>
-        <source src="assets/video/37664-418005769_medium.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-    </video>    
+      <source src="assets/video/37664-418005769_medium.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
     <h1 class="custom-text">Sumercé, sembremos juntos</h1>
     <p class="custom-text2">
-        Confiamos en la berriondera de la tierrita, y por eso le metemos el pecho, <br> 
-        sembrando un futuro echao pa’lante pa’ todos.
+      Confiamos en la berriondera de esta tierrita, <br>
+      sembremos un futuro pa’ todos.
     </p>
   </div>
 
@@ -118,7 +137,8 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary me-interesa-button" data-predio-id="">Me interesa</button>
+                      <button type="button" class="btn btn-primary me-interesa-button" data-predio-id="">Me
+                        interesa</button>
                     </div>
                   </div>
                 </div>
@@ -132,7 +152,8 @@
                 <div class="mb-3">
                   <label for="name" class="form-label">Nombre y Apellido</label>
                   <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="50" required>
-                  <div class="invalid-feedback">El nombre y apellido deben tener entre 3 y 50 caracteres y solo contener letras.</div>
+                  <div class="invalid-feedback">El nombre y apellido deben tener entre 3 y 50 caracteres y solo contener
+                    letras.</div>
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
@@ -142,8 +163,8 @@
                   <label for="phone" class="form-label">Celular</label>
                   <input type="text" pattern="[0-9]+" class="form-control" id="phone" name="phone" required>
                   <div class="invalid-feedback">Por favor ingrese solo números.</div>
-              </div>
-              
+                </div>
+
                 <div class="mb-3">
                   <label for="message" class="form-label">Mensaje</label>
                   <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
@@ -182,6 +203,58 @@
     </footer>
   </div>
 
+  <!-- Sidebar de Login y Registro -->
+  <div id="loginSidebar" class="sidebar">
+    <div class="sidebar-content">
+      <!-- Título Dinámico -->
+      <h2 id="sidebarTitle">Iniciar Sesión</h2>
+
+      <!-- Formulario de Inicio de Sesión -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="emailInput">Correo Electrónico</label>
+          <input type="email" id="emailInput" class="form-control" placeholder="Ingresa tu correo electrónico">
+        </div>
+        <div class="form-group">
+          <label for="passwordInput">Contraseña</label>
+          <input type="password" id="passwordInput" class="form-control" placeholder="Ingresa tu contraseña">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
+        <button type="button" class="btn btn-link mt-2" id="forgotPasswordButton">¿Olvidaste tu contraseña?</button>
+        <button type="button" class="btn btn-link mt-2" id="showRegisterFormButton">¿No tienes cuenta?
+          Regístrate</button>
+      </form>
+
+      <!-- Formulario de Registro -->
+      <form id="registerForm" style="display: none;">
+        <div class="form-group">
+          <label for="registerEmail">Correo Electrónico</label>
+          <input type="email" id="registerEmail" class="form-control" placeholder="Ingresa tu correo electrónico">
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Contraseña</label>
+          <input type="password" id="registerPassword" class="form-control" placeholder="Ingresa tu contraseña">
+        </div>
+        <div class="form-group">
+          <label for="registerConfirmPassword">Confirmar Contraseña</label>
+          <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirma tu contraseña">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-3">Registrarse</button>
+        <button type="button" class="btn btn-link mt-2" id="showLoginFormButton">¿Ya tienes cuenta? Inicia
+          Sesión</button>
+      </form>
+
+      <!-- Perfil de Usuario (Oculto por defecto) -->
+      <div id="userProfile" style="display: none;">
+        <h3>Bienvenido, <span id="userName"></span></h3>
+        <p><strong>Correo:</strong> <span id="userEmail"></span></p>
+        <p><strong>Teléfono:</strong> <span id="userPhone"></span></p>
+        <button id="logoutButton" class="btn btn-danger btn-block mt-3">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -193,7 +266,10 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="assets/js/Models/Cards.js"></script>
+  <script type="module" src="assets/js/firebaseConfig.js"></script>
+  <script type="module" src="assets/js/profileSidebar.js"></script>
   <script src="assets/js/firebase.js"></script>
+  <script src="assets/js/profileSidebar.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/form.js"></script>
   <script src="assets/js/filter.js"></script>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/img/icons/icons8-planta-94.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/stylenosotros.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <title>Nosotros - CONEXION AGRARIA</title>
+</head>
+
+<body>
+  <div class="modal fade custom-modal" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div id="contactFormSection">
+            <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
+            <form id="contactForm" class="modal-form">
+              <input type="hidden" id="predioId" name="predioId" value="">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="50" required>
+                <div class="invalid-feedback">El nombre y apellido deben tener entre 3 y 50 caracteres y solo contener
+                  letras.</div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Celular</label>
+                <input type="text" pattern="[0-9]+" class="form-control" id="phone" name="phone" required>
+                <div class="invalid-feedback">Por favor ingrese solo números.</div>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logos/logo_blanco.png" alt="" width="110px" class="d-inline-block align-text-top">
+      </a>
+
+      <div class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a id="aboutUsButton" class="nav-link" href="nosotros.html">¿Quiénes somos, sumercé?</a>
+          </li>
+          <li class="nav-item">
+            <a id="btn_start" class="nav-link active btn-start contact-form-trigger" href="#" data-bs-toggle="modal"
+              data-bs-target="#gameModal">Contáctanos</a>
+          </li>
+          <!-- Botón de inicio de sesión o perfil -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"> <img src="assets/img/icons/icono_campecino.png" alt="Icono de Perfil"
+                class="profile-icon">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="#" id="loginButton">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="#" id="registerButton">Registrarse</a></li>
+              <li><a class="dropdown-item" href="#" id="profileButton" style="display: none;">Ver Perfil</a></li>
+              <li><a class="dropdown-item" href="#" id="logoutButton" style="display: none;">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="modal fade custom-modal" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          <div id="modal-image-container"></div>
+          <div class="contCard">
+            <div id="cardInfo">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 id="modal-title" class="mb-5 text-center"></h2>
+
+                    <div class="swiper-container modal-swiper-container">
+                      <div class="swiper-wrapper" id="modal-carousel-inner"></div>
+                      <div class="tranding-slider-control">
+                        <div class="swiper-button-prev slider-arrow">
+                          <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-button-next slider-arrow">
+                          <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+
+                    <div class="modal-description-container mt-4">
+                      <p id="modal-description" class="modal-info"></p>
+                    </div>
+
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <p id="modal-departamento" class="modal-info mb-3"></p>
+                        <p id="modal-municipio" class="modal-info mb-3"></p>
+                        <p id="modal-direccion" class="modal-info mb-3"></p>
+                        <p id="modal-clima" class="modal-info mb-3"></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p id="modal-medidas" class="modal-info mb-3"></p>
+                        <p id="modal-precio-metroCuadrado" class="modal-info mb-3"></p>
+                        <p id="modal-precio-arriendo" class="modal-info mb-3"></p>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary me-interesa-button" data-predio-id="">Me
+                        interesa</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="contactFormSection" style="display:none;">
+              <h5 class="modal-title" id="contactModalLabel">Contactanos</h5>
+              <form id="contactForm" class="modal-form">
+                <input type="hidden" id="predioId" name="predioId" value="">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre y Apellido</label>
+                  <input type="text" class="form-control" id="name" name="name" minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">El nombre y apellido deben tener entre 3 y 50 caracteres y solo contener
+                    letras.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Celular</label>
+                  <input type="text" pattern="[0-9]+" class="form-control" id="phone" name="phone" required>
+                  <div class="invalid-feedback">Por favor ingrese solo números.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido de la página Nosotros -->
+  <div class="container mt-5 pt-5">
+    <!-- Sección: Quiénes Somos -->
+    <section class="mb-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="mb-4 text-center custom-title">¿Quiénes Somos?</h1>
+          <p class="text-justify">
+            <strong>Conexión Agraria</strong> es una plataforma digital diseñada para revolucionar el sector
+            agropecuario en
+            Colombia. Nacida del corazón del campo colombiano, nuestra iniciativa busca crear un puente entre los
+            propietarios de terrenos agrícolas y los empresarios interesados en invertir en la tierra sin la necesidad
+            de
+            adquirirla. Con un enfoque en la sostenibilidad y el desarrollo rural, Conexión Agraria se erige como una
+            solución integral que no solo conecta a las partes interesadas, sino que también promueve el crecimiento
+            económico y social en las comunidades agrícolas. Creemos en el poder de la colaboración y en el potencial de
+            nuestras tierras, y es por ello que trabajamos incansablemente para ofrecer una plataforma accesible,
+            eficiente
+            y justa para todos.
+          </p>
+        </div>
+        <div class="col-lg-6 capesino">
+          <img src="assets/img/memory/campesino_cargando.jpg" class="img-fluid rounded"
+            alt="Imagen representativa de Conexión Agraria">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Sección: Nuestra Historia -->
+    <section class="mb-5 text-center bg-light p-5 rounded">
+      <h2 class="mb-4">Nuestra Historia</h2>
+      <p class="text-justify">
+        Hace cinco años, un hombre se encontraba en un momento crucial de su vida, enfrentando la adversidad en
+        una finca humilde en Barrancabermeja, Colombia. Después de una dolorosa separación y con la
+        responsabilidad de criar a tres hijos pequeños, se vio obligado a regresar a sus raíces en el campo.
+        Aunque la finca era un lugar lleno de historia y herencia, también representaba un desafío enorme debido a
+        las limitaciones económicas.
+
+        En ese entorno, mientras trabajaba la tierra y cuidaba de su familia, comenzó a germinar una idea. Observó
+        cómo muchos propietarios de tierras agrícolas en la región se veían obligados a vender sus predios por la
+        falta de recursos o de oportunidades para explotarlos de manera adecuada. Esto le inspiró a buscar una
+        solución que permitiera a los propietarios mantener sus tierras, al mismo tiempo que se conectaban con
+        empresarios interesados en invertir.
+
+        Determinó que la educación sería su herramienta para hacer realidad esta visión, y se inscribió en el
+        programa de Análisis y Desarrollo de Software en el SENA. A pesar de las dificultades, cada clase y
+        proyecto le acercaba más a su objetivo. Con el tiempo, y tras mucho esfuerzo, nació lo que hoy conocemos
+        como <strong>Conexión Agraria</strong>.
+
+        Lo que comenzó como un sueño en medio de la adversidad, se transformó en una plataforma que hoy en día
+        conecta a propietarios de tierras agrícolas con empresas que buscan invertir en el sector. Esta iniciativa
+        no solo ha permitido a muchos agricultores mantener sus predios, sino que también ha impulsado el
+        crecimiento económico en diversas regiones de Colombia. Conexión Agraria es, en esencia, una historia de
+        resiliencia, innovación y profundo compromiso con las comunidades rurales.
+      </p>
+
+    </section>
+
+    <!-- Sección: Nuestra Misión -->
+    <section class="section-black">
+      <div class="container">
+        <h2 class="mb-4">Nuestra Misión</h2>
+        <p class="text-justify">
+          La misión de Conexión Agraria es transformar el panorama agrícola en Colombia mediante la creación de una
+          plataforma digital inclusiva y eficiente que conecte a los propietarios de terrenos rurales con empresarios y
+          emprendedores que deseen invertir en la tierra, sin la necesidad de adquirirla. Nos comprometemos a ser un
+          catalizador para el desarrollo sostenible, promoviendo la productividad y rentabilidad de los terrenos
+          agrícolas, al tiempo que respetamos y preservamos las tradiciones y valores de las comunidades rurales. A
+          través
+          de la tecnología, buscamos democratizar el acceso a recursos, conocimientos y oportunidades, facilitando que
+          los
+          propietarios de tierras, especialmente aquellos con limitados recursos, puedan beneficiarse económicamente y
+          participar activamente en el crecimiento del sector agropecuario. Nuestra misión es ser un aliado confiable
+          que
+          fomente relaciones de beneficio mutuo, donde la inversión y la innovación se traduzcan en prosperidad
+          compartida, mejorando la calidad de vida de todos los involucrados en el proceso.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- Sección: Nuestra Visión -->
+    <section class="mb-5 text-center bg-light rounded section-fullwidth-image">
+      <h2 class="mb-4">Nuestra Visión</h2>
+      <p class="text-justify">
+        Aspiramos a escalar <strong>Conexión Agraria</strong>, es convertirnos en la plataforma líder en el sector
+        agropecuario a nivel nacional e internacional. Aspiramos a expandir nuestra presencia en toda Colombia y más
+        allá,
+        llevando oportunidades de desarrollo a comunidades rurales en todo el mundo. Queremos ser reconocidos no solo
+        por
+        nuestra innovación tecnológica, sino también por nuestro compromiso con el bienestar de los agricultores y el
+        desarrollo sostenible del sector agropecuario.
+      </p>
+      <div class="image-container">
+        <img src="assets/img/memory/corn-5134432_1920.jpg" class="img-fluid fullwidth-image mt-4"
+          alt="Visión global de Conexión Agraria">
+      </div>
+    </section>
+
+    <!-- Sección: Nuestros Valores -->
+    <section class="mb-5">
+      <h2 class="mb-4 text-center">Nuestros Valores</h2>
+      <div class="row">
+        <div class="col-md-3 text-center valores-item">
+          <img src="assets/img/memory/hand-1331323_640.jpg" class="img-fluid valores-img mb-3" alt="Compromiso Social">
+          <h5 class="valores-title">Compromiso Social</h5>
+          <p class="text-justify small-text">
+            Trabajamos para mejorar la calidad de vida de los campesinos y sus familias.
+          </p>
+        </div>
+        <div class="col-md-3 text-center valores-item">
+          <img src="assets/img/memory/imagen18.jpg" class="img-fluid valores-img mb-3" alt="Sostenibilidad">
+          <h5 class="valores-title">Sostenibilidad</h5>
+          <p class="text-justify small-text">
+            Promovemos el uso responsable y productivo de la tierra, sin necesidad de cambiar su propiedad.
+          </p>
+        </div>
+        <div class="col-md-3 text-center valores-item">
+          <img src="assets/img/memory/drone-operator-6533164_640.jpg" class="img-fluid valores-img mb-3"
+            alt="Innovación">
+          <h5 class="valores-title">Innovación</h5>
+          <p class="text-justify small-text">
+            Integramos tecnologías avanzadas para mejorar la eficiencia y efectividad en la gestión de predios y
+            proyectos agrícolas.
+          </p>
+        </div>
+        <div class="col-md-3 text-center valores-item">
+          <img src="assets/img/memory/solidarity-649713_640.jpg" class="img-fluid valores-img mb-3" alt="Transparencia">
+          <h5 class="valores-title">Transparencia</h5>
+          <p class="text-justify small-text">
+            Priorizamos la honestidad y claridad en cada transacción y acuerdo que se lleva a cabo a través de nuestra
+            plataforma.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="fixed-highlight">
+      <div class="content-left">
+        <h2>Únete a Nuestro Empredimiento</h2>
+        <p class="text-justify">
+          Invitamos a empresarios, empresas y organizaciones a ser parte de esta transformación. Juntos, podemos crear
+          un
+          futuro donde el campo colombiano florezca y donde cada campesino tenga la oportunidad de vivir dignamente
+          gracias a su tierra.
+        </p>
+      </div>
+      <a id="btn_start" class="nav-link active btn-start contact-form-trigger btn-highlight" href="#"
+        data-bs-toggle="modal" data-bs-target="#gameModal">Contáctanos</a>
+    </section>
+
+    <!-- Sidebar de Login y Registro -->
+    <div id="loginSidebar" class="sidebar">
+      <div class="sidebar-content">
+        <!-- Título Dinámico -->
+        <h2 id="sidebarTitle">Iniciar Sesión</h2>
+
+        <!-- Formulario de Inicio de Sesión -->
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="emailInput">Correo Electrónico</label>
+            <input type="email" id="emailInput" class="form-control" placeholder="Ingresa tu correo electrónico">
+          </div>
+          <div class="form-group">
+            <label for="passwordInput">Contraseña</label>
+            <input type="password" id="passwordInput" class="form-control" placeholder="Ingresa tu contraseña">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
+          <button type="button" class="btn btn-link mt-2" id="forgotPasswordButton">¿Olvidaste tu contraseña?</button>
+          <button type="button" class="btn btn-link mt-2" id="showRegisterFormButton">¿No tienes cuenta?
+            Regístrate</button>
+        </form>
+
+        <!-- Formulario de Registro -->
+        <form id="registerForm" style="display: none;">
+          <div class="form-group">
+            <label for="registerEmail">Correo Electrónico</label>
+            <input type="email" id="registerEmail" class="form-control" placeholder="Ingresa tu correo electrónico">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Contraseña</label>
+            <input type="password" id="registerPassword" class="form-control" placeholder="Ingresa tu contraseña">
+          </div>
+          <div class="form-group">
+            <label for="registerConfirmPassword">Confirmar Contraseña</label>
+            <input type="password" id="registerConfirmPassword" class="form-control"
+              placeholder="Confirma tu contraseña">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block mt-3">Registrarse</button>
+          <button type="button" class="btn btn-link mt-2" id="showLoginFormButton">¿Ya tienes cuenta? Inicia
+            Sesión</button>
+        </form>
+
+        <!-- Perfil de Usuario (Oculto por defecto) -->
+        <div id="userProfile" style="display: none;">
+          <h3>Bienvenido, <span id="userName"></span></h3>
+          <p><strong>Correo:</strong> <span id="userEmail"></span></p>
+          <p><strong>Teléfono:</strong> <span id="userPhone"></span></p>
+          <button id="logoutButton" class="btn btn-danger btn-block mt-3">Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Pie de página -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+            </a>
+            <span class="text-muted">&copy; 2024 Conexión Agraria. All rights reserved.</span>
+          </div>
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                  <use xlink:href="#twitter"></use>
+                </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                  <use xlink:href="#instagram"></use>
+                </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                  <use xlink:href="#facebook"></use>
+                </svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="assets/js/firebase.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form.js"></script>
+    <script src="assets/js/filter.js"></script>
+    <script src="assets/js/profileSidebar.js"></script>
+</body>
+
+</html>

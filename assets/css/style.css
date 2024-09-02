@@ -9,14 +9,18 @@ html {
 
 .navbar {
   background-color: #000 !important;
+  height: 60px;
+  /* Ajusta este valor para reducir la altura */
 }
 
 /* Para el texto principal */
 .custom-text {
   position: absolute;
   top: 45%;
-  right: 50px; /* Ajusta este valor según el espacio deseado desde el borde derecho */
-  text-align: right; /* Alinea el texto a la derecha */
+  left: 50px;
+  /* Ajusta este valor según el espacio deseado desde el borde derecho */
+  text-align: left;
+  /* Alinea el texto a la derecha */
   color: white;
   font-size: 3vw;
 }
@@ -31,8 +35,10 @@ html {
 .custom-text2 {
   position: absolute;
   top: 55%;
-  right: 50px; /* Ajusta este valor según el espacio deseado desde el borde derecho */
-  text-align: right; /* Alinea el texto a la derecha */
+  left: 50px;
+  /* Ajusta este valor según el espacio deseado desde el borde derecho */
+  text-align: left;
+  /* Alinea el texto a la derecha */
   color: white;
   font-size: 1.3vw;
 }
@@ -75,12 +81,18 @@ html {
 .modal-content {
   background-color: #f6f4f4;
 }
+
 .modal-description-container {
-  background-color: #c9cccf6b; /* Tono gris muy leve */
-  border-radius: 8px;       /* Bordes redondeados */
-  padding: 15px;            /* Padding */
-  margin: 25px 0;           /* Margen superior e inferior */
-  text-align: justify;      /* Texto justificado */
+  background-color: #c9cccf6b;
+  /* Tono gris muy leve */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  padding: 15px;
+  /* Padding */
+  margin: 25px 0;
+  /* Margen superior e inferior */
+  text-align: justify;
+  /* Texto justificado */
 }
 
 .modal-info {
@@ -89,19 +101,6 @@ html {
   margin-bottom: 15px;
 }
 
-
-.form-container {
-  background-color: rgba(62, 60, 60, 0.604);
-  /* Aumenta la transparencia */
-  height: 500px; /* Ajusta la altura del formulario */
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  /* Establece el ancho máximo */
-  margin: 50px;
-  /* Centra horizontalmente el formulario */
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-}
 
 .toggle-btn-container {
   display: inline-block;
@@ -160,7 +159,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-    text-transform: uppercase;
+  text-transform: none;
 }
 
 /* Estilos para los input al ser enfocados */
@@ -251,55 +250,75 @@ button[type="submit"]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem; /* Añadimos margen superior para separarlos del slider */
+  margin-top: 2rem;
+  /* Añadimos margen superior para separarlos del slider */
 }
 
 .tranding-slider-control .swiper-pagination {
-  position: absolute; /* Cambiamos a posición absoluta */
-  bottom: -2rem; /* Ajustamos la posición con un margen negativo */
-  left: 0; /* Ajustamos la posición a la izquierda */
-  right: 0; /* Ajustamos la posición a la derecha */
-  text-align: center; /* Centramos los botones de paginación */
+  position: absolute;
+  /* Cambiamos a posición absoluta */
+  bottom: -2rem;
+  /* Ajustamos la posición con un margen negativo */
+  left: 0;
+  /* Ajustamos la posición a la izquierda */
+  right: 0;
+  /* Ajustamos la posición a la derecha */
+  text-align: center;
+  /* Centramos los botones de paginación */
 }
 
 .tranding-slider-control .swiper-button-next,
 .tranding-slider-control .swiper-button-prev {
-  position: absolute; /* Cambiamos a posición absoluta */
-  top: 50%; /* Posicionamos en el centro verticalmente */
-  transform: translateY(-50%); /* Centramos verticalmente */
+  position: absolute;
+  /* Cambiamos a posición absoluta */
+  top: 50%;
+  /* Posicionamos en el centro verticalmente */
+  transform: translateY(-50%);
+  /* Centramos verticalmente */
 }
 
 .tranding-slider-control .swiper-button-next {
-  right: 0; /* Ajustamos la posición a la derecha */
+  right: 0;
+  /* Ajustamos la posición a la derecha */
 }
 
 .tranding-slider-control .swiper-button-prev {
-  left: 0; /* Ajustamos la posición a la izquierda */
+  left: 0;
+  /* Ajustamos la posición a la izquierda */
 }
 
 .tranding-slider-control .slider-arrow ion-icon {
-  font-size: 2.5rem; /* Ajusta el tamaño del ícono */
-  color: black; /* Cambia el color del ícono a negro */
+  font-size: 2.5rem;
+  /* Ajusta el tamaño del ícono */
+  color: black;
+  /* Cambia el color del ícono a negro */
 }
+
 /* Estilos para el punto activo de la paginación del slider */
 .tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
-  background: black; /* Cambia el color de fondo del punto activo a negro */
+  background: black;
+  /* Cambia el color de fondo del punto activo a negro */
 }
+
 .modal-info {
   font-size: 1.2rem;
 }
+
 .swiper-pagination {
-  margin-bottom: 15px; /* Ajusta este valor según tu preferencia */
+  margin-bottom: 15px;
+  /* Ajusta este valor según tu preferencia */
 }
+
 .invalid-feedback {
   font-size: 1.1rem;
   display: none;
   color: red;
 }
 
-input:invalid + .invalid-feedback {
+input:invalid+.invalid-feedback {
   display: block;
 }
+
 .ribbon {
   position: absolute;
   right: -5px;
@@ -315,7 +334,7 @@ input:invalid + .invalid-feedback {
   font-size: 12px;
   font-weight: bold;
   color: #FFF;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
   line-height: 20px;
   transform: rotate(45deg);
@@ -332,52 +351,75 @@ input:invalid + .invalid-feedback {
 
 /* Aumenta el tamaño de las etiquetas y textos de los inputs */
 #contactFormSection .form-label {
-  font-size: 1.6rem; /* Ajusta el tamaño según sea necesario */
-  margin-top: 1px; /* Ajusta la distancia superior del primer label */
+  font-size: 1.6rem;
+  /* Ajusta el tamaño según sea necesario */
+  margin-top: 1px;
+  /* Ajusta la distancia superior del primer label */
 }
 
 #contactFormSection .form-control {
-  font-size: 2rem; /* Ajusta el tamaño según sea necesario */
+  font-size: 2rem;
+  /* Ajusta el tamaño según sea necesario */
 }
 
 /* Opcional: Ajusta el tamaño del título del modal */
 #contactFormSection .modal-title {
-  font-size: 3rem; /* Ajusta el tamaño según sea necesario */
-  text-align: center; /* Centra el título horizontalmente */
-  margin-top: 30px; /* Ajusta la distancia desde el borde superior del contenedor */
+  font-size: 3rem;
+  /* Ajusta el tamaño según sea necesario */
+  text-align: center;
+  /* Centra el título horizontalmente */
+  margin-top: 10px;
+  /* Ajusta la distancia desde el borde superior del contenedor */
 
 }
 
 #contactFormSection .btn-primary {
-  font-size: 1.2rem; /* Ajusta el tamaño según sea necesario */
+  font-size: 1.2rem;
+  /* Ajusta el tamaño según sea necesario */
 }
+
 /* Estilos específicos para el formulario dentro del modal */
 .modal-form {
-  padding: 50px !important; /* Ajusta el relleno */
+  padding: 15px !important;
+  /* Ajusta el relleno */
 }
+
 /* Estilo del botón en su estado normal */
 .btn-primary.me-interesa-button {
-  background-color: black; /* Fondo negro */
-  color: white; /* Texto blanco */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Ajusta el relleno según sea necesario */
-  border-radius: 5px; /* Bordes redondeados */
-  font-size: 1.1rem !important; /* Tamaño de la fuente */
-  cursor: pointer; /* Cambia el cursor al pasar sobre él */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  background-color: black;
+  /* Fondo negro */
+  color: white;
+  /* Texto blanco */
+  border: none;
+  /* Sin borde */
+  padding: 10px 20px;
+  /* Ajusta el relleno según sea necesario */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  font-size: 1.1rem !important;
+  /* Tamaño de la fuente */
+  cursor: pointer;
+  /* Cambia el cursor al pasar sobre él */
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
 }
 
 /* Estilo del botón en el estado hover */
 .btn-primary.me-interesa-button:hover {
-  background-color: white; /* Fondo blanco */
-  color: black; /* Texto negro */
-  border: 1px solid black; /* Añade un borde negro al pasar el cursor */
+  background-color: white;
+  /* Fondo blanco */
+  color: black;
+  /* Texto negro */
+  border: 1px solid black;
+  /* Añade un borde negro al pasar el cursor */
 }
 
 /* Estilo del botón en el estado activo (opcional) */
 .btn-primary.me-interesa-button:active {
-  background-color: #ccc; /* Fondo gris claro al hacer clic */
-  color: black; /* Texto negro */
+  background-color: #ccc;
+  /* Fondo gris claro al hacer clic */
+  color: black;
+  /* Texto negro */
 }
 
 .video-banner {
@@ -391,6 +433,7 @@ input:invalid + .invalid-feedback {
   height: 100%;
   object-fit: cover;
 }
+
 /* Capa de sombreado */
 .overlay {
   position: absolute;
@@ -398,29 +441,38 @@ input:invalid + .invalid-feedback {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Color negro con 40% de opacidad */
-  pointer-events: none; /* Permite hacer clic a través de la capa */
+  background: rgba(0, 0, 0, 0.4);
+  /* Color negro con 40% de opacidad */
+  pointer-events: none;
+  /* Permite hacer clic a través de la capa */
 }
+
 /* Estilos del buscador */
 .search-wrapper {
   position: relative;
-  max-width: 500px; /* Ajusta el tamaño del buscador */
+  max-width: 400px;
+  /* Ajusta el tamaño del buscador */
   flex: 1;
 }
 
 #keywordInput {
   width: 100%;
-  padding: 8px 40px 8px 15px; /* Ajusta el padding para el icono */
+  padding: 8px 40px 8px 15px;
+  /* Ajusta el padding para el icono */
   font-size: 14px;
   border: 1px solid #ccc;
-  border-radius: 15px; /* Borde redondeado */
+  border-radius: 15px;
+  /* Borde redondeado */
   box-sizing: border-box;
-  transition: border-color 0.3s ease; /* Añade transición para el borde */
+  transition: border-color 0.3s ease;
+  /* Añade transición para el borde */
 }
 
 #keywordInput:focus {
-  border-color: #ccc; /* Borde gris al hacer foco */
-  outline: none; /* Elimina el borde de enfoque predeterminado */
+  border-color: #ccc;
+  /* Borde gris al hacer foco */
+  outline: none;
+  /* Elimina el borde de enfoque predeterminado */
 }
 
 .search-icon {
@@ -432,7 +484,8 @@ input:invalid + .invalid-feedback {
   background: transparent;
   cursor: pointer;
   font-size: 16px;
-  color: #555; /* Color gris para el icono */
+  color: #555;
+  /* Color gris para el icono */
 }
 
 .search-icon i {
@@ -443,41 +496,326 @@ input:invalid + .invalid-feedback {
 .search-wrapper input {
   background-color: #fff;
   color: #333;
-  height: 35px; /* Ajustar la altura del input */
+  height: 35px;
+  /* Ajustar la altura del input */
 }
 
 #keywordInput:hover,
 #keywordInput:focus {
-  border-color: #a89c9c; /* Color gris al hacer hover y foco */
+  border-color: #a89c9c;
+  /* Color gris al hacer hover y foco */
 }
 
 #noResultsMessage {
-  display: none; /* Ocultar por defecto */
-  position: fixed; /* Fijo en la pantalla */
-  top: 50%; /* Centrarse verticalmente */
-  left: 50%; /* Centrarse horizontalmente */
-  transform: translate(-50%, -50%); /* Ajuste para centrar el elemento */
-  background-color: rgba(205, 196, 196, 0.9); /* Fondo blanco con opacidad */
+  display: none;
+  /* Ocultar por defecto */
+  position: fixed;
+  /* Fijo en la pantalla */
+  top: 50%;
+  /* Centrarse verticalmente */
+  left: 50%;
+  /* Centrarse horizontalmente */
+  transform: translate(-50%, -50%);
+  /* Ajuste para centrar el elemento */
+  background-color: rgba(205, 196, 196, 0.9);
+  /* Fondo blanco con opacidad */
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   color: rgb(5, 5, 5) !important;
-  font-size: 2rem; /* Tamaño del texto */
-  width: 40%; /* Ancho del mensaje */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.262); /* Sombra para mayor visibilidad */
+  font-size: 2rem;
+  /* Tamaño del texto */
+  width: 40%;
+  /* Ancho del mensaje */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.262);
+  /* Sombra para mayor visibilidad */
 }
+
 #contGame {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Para que las tarjetas se alineen a la izquierda */
-  gap: 1rem; /* Espacio entre las tarjetas, ajusta según necesites */
+  justify-content: flex-start;
+  /* Para que las tarjetas se alineen a la izquierda */
+  gap: 1rem;
+  /* Espacio entre las tarjetas, ajusta según necesites */
 }
+
 /* Asegúrate de que las tarjetas mantengan su tamaño y formato */
 .card {
   /* Asegúrate de definir las propiedades básicas de la tarjeta */
-  flex: 0 1 23%; /* Ajusta el tamaño según tus necesidades */
-  margin-bottom: 1rem; /* Espaciado inferior entre las tarjetas */
-  box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+  flex: 0 1 23%;
+  /* Ajusta el tamaño según tus necesidades */
+  margin-bottom: 1rem;
+  /* Espaciado inferior entre las tarjetas */
+  box-sizing: border-box;
+  /* Incluye padding y border en el tamaño total */
   display: block;
   /* Agrega otros estilos que necesites */
+}
+
+/* Estilos del sidebar */
+.sidebar {
+  margin-top: 60px;
+  /* Ajusta este valor para que coincida con la altura de tu navbar */
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar .form-group {
+  margin-bottom: 15px;
+}
+
+.sidebar .btn-block {
+  width: 100%;
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+body.sidebar-open {
+  overflow: hidden;
+}
+
+#loginForm,
+#registerForm {
+  margin-top: 30px;
+  /* Aumenta este valor según sea necesario */
+}
+
+#sidebarTitle {
+  margin-top: 30px;
+  /* Si también quieres bajar el título */
+}
+
+#loginForm label,
+#registerForm label {
+  font-size: 1.2rem;
+  /* Ajusta este valor según lo necesites */
+}
+
+#loginForm input,
+#registerForm input {
+  font-size: 1.5rem;
+  /* Aumenta el tamaño del texto dentro de los inputs */
+}
+
+#loginForm input,
+#registerForm input {
+  border-radius: 8px;
+  /* Ajusta este valor para redondear más o menos las esquinas */
+}
+
+/* Estilo para los botones de Iniciar Sesión y Registrarse */
+#loginSidebar .btn-primary,
+#loginSidebar .btn-link {
+  font-size: 1.2rem;
+  /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+/* Asegúrate de que el botón de "Registrarse" también tenga el mismo estilo */
+#loginSidebar .btn-primary.btn-block {
+  font-size: 1.2rem;
+  /* Ajusta el tamaño de la fuente para el botón de registrarse */
+}
+
+/* Estilos para el navbar */
+.navbar .nav-link,
+.navbar .dropdown-toggle {
+  color: white !important;
+  /* Color blanco para los enlaces del navbar */
+  font-size: 1.4rem;
+  /* Igual tamaño de fuente */
+  display: flex;
+  align-items: center;
+  /* Alinear verticalmente */
+  padding: 10px 15px;
+  /* Asegurar el mismo padding */
+}
+
+/* Separación entre elementos del navbar */
+.navbar .nav-item {
+  margin-right: 20px;
+  /* Espacio más amplio entre los botones */
+}
+
+/* Efecto de caída para el menú desplegable */
+.navbar .dropdown-menu {
+  background-color: black;
+  /* Fondo oscuro para el menú desplegable */
+  color: white;
+  /* Color de texto blanco */
+  border-radius: 10px;
+  /* Bordes inferiores redondeados */
+
+  /* Transición para suavizar la aparición */
+  transform: translateY(-15px);
+  /* Posiciona ligeramente hacia arriba al principio */
+  opacity: 0;
+  /* Inicia invisible */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  /* Incrementar la duración de la transición */
+  display: none;
+  /* Oculto por defecto */
+}
+
+/* Mostrar el menú desplegable con la animación */
+.navbar .dropdown-menu.show {
+  transform: translateY(0);
+  /* Vuelve a su posición original */
+  opacity: 1;
+  /* Totalmente visible */
+  display: block;
+  /* Mostrar el menú */
+}
+
+/* Elementos del menú desplegable */
+.navbar .dropdown-menu .dropdown-item {
+  color: white;
+  /* Color blanco para los elementos del menú */
+  font-size: 1.2rem;
+  /* Aumentar tamaño del texto */
+  padding: 10px 20px;
+  /* Ajustar el espaciado interno para mayor claridad */
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #555;
+  /* Cambiar color de fondo al pasar el mouse */
+  color: white;
+  /* Mantener el texto blanco */
+}
+
+
+/* Estilo para el ícono del perfil */
+.navbar .fas.fa-user {
+  color: white;
+  /* Color blanco para el ícono de usuario */
+  font-size: 1.4rem;
+  /* Ajustar tamaño del icono al tamaño del texto */
+}
+
+/* Icono de perfil encerrado en un círculo */
+.navbar .profile-icon {
+  background-color: black;
+  /* Fondo blanco para el círculo */
+  color: black;
+  /* Color del icono dentro del círculo */
+  font-size: 1.7rem;
+  /* Tamaño del icono */
+  border-radius: 50%;
+  /* Forma circular */
+  padding: 10px;
+  /* Espacio dentro del círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Asegurar que todos los items estén alineados correctamente */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Ajuste del botón Contáctanos */
+.navbar .nav-item:last-child .nav-link {
+  padding: 10px 15px;
+  /* Asegurar que tenga el mismo padding que los demás */
+}
+
+/* Ajustar el estilo de la imagen del perfil */
+/* Ajustar el tamaño de la imagen de perfil */
+.profile-icon {
+  width: 50px;
+  /* Ajusta este tamaño según lo necesario */
+  height: 50px;
+  /* Asegúrate de que sea cuadrado */
+  border-radius: 50%;
+  /* Mantén la imagen circular */
+  object-fit: cover;
+  /* Asegura que la imagen se ajuste bien al círculo */
+}
+
+/* Alinear correctamente los elementos dentro del navbar */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para el texto del placeholder */
+input::placeholder {
+  color: #c7c8c9 !important;
+  /* Gris claro */
+  font-size: 1rem;
+  /* Tamaño de texto más pequeño, ajusta según necesidad */
+}
+
+/* Estilo para el fondo de los campos de entrada */
+input {
+  background-color: #f0f8f0;
+  /* Verde crema claro */
+  border-radius: 5px;
+  /* Bordes redondeados, ajusta el valor según preferencia */
+  padding: 0.5rem;
+  /* Espaciado interno, ajusta según necesidad */
+}
+
+/* Estilo para el estado enfocado del campo de entrada */
+input:focus {
+  background-color: #e6f4e6 !important;
+  /* Verde crema más claro, ajusta según preferencia */
+  outline: none;
+  /* Quita el borde de enfoque predeterminado si es necesario */
+}
+
+/* CSS */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Asegúrate de que el spinner esté encima de todo */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

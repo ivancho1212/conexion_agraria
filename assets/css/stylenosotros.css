@@ -1,0 +1,374 @@
+h1,
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 700;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/* Ajustar tamaño de la letra en la narrativa */
+p {
+    font-size: 1.5rem !important;
+    /* Incrementa el tamaño de la letra */
+    line-height: 1.4 !important;
+    /* Mejora la legibilidad */
+    color: #333;
+    /* Contraste adecuado para fondo claro */
+}
+
+/* Estilos para las cards del equipo */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: #1abc9c;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer .text-muted {
+    color: #bdc3c7 !important;
+}
+
+footer .nav a {
+    color: #bdc3c7;
+    transition: color 0.3s ease-in-out;
+}
+
+footer .nav a:hover {
+    color: #1abc9c;
+}
+
+footer .iva {
+    font-size: 0.9rem;
+}
+
+/* Centrar y dar margen superior al título */
+.custom-title {
+    margin-top: 50px;
+    /* Ajusta el valor según sea necesario */
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.section-black {
+    background-color: black;
+    color: #fff;
+    padding: 80px 0;
+    /* Espaciado superior e inferior */
+    width: 100vw;
+    /* Asegura que cubra todo el ancho de la ventana */
+    margin-left: calc(-50vw + 50%);
+    /* Centra el contenedor en el viewport */
+    margin-right: calc(-50vw + 50%);
+    /* Centra el contenedor en el viewport */
+    position: relative;
+}
+
+.section-black h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+.section-black p {
+    font-size: 1.5rem !important;
+    /* Incrementa el tamaño de la letra */
+    line-height: 1.4 !important;
+    /* Mejora la legibilidad */
+    color: #bdc3c7;
+    /* Texto ligeramente más suave */
+    text-align: justify;
+    margin: 0 auto;
+    max-width: 800px;
+    /* Ancho máximo para que no se extienda demasiado */
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.capesino {
+    display: flex;
+    margin: 80px 0px 0px 0px;
+    justify-content: center;
+    padding-left: 30px;
+    /* Añade espacio entre la imagen y el texto */
+}
+
+.capesino img {
+    width: 90%;
+    /* Reduce el ancho de la imagen */
+    max-width: 100%;
+    /* Asegura que la imagen no se desborde */
+    height: auto;
+}
+
+.section-fullwidth-image {
+    background-color: #ffffff !important;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    padding: 20px 0;
+    /* Reducir el padding superior e inferior */
+}
+
+.image-container {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+}
+
+.fullwidth-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    /* Limitar la altura de la imagen */
+    object-fit: cover;
+    /* Ajustar la imagen para cubrir el espacio disponible */
+}
+
+.row {
+    margin-right: -15px;
+    /* Ajusta el margen negativo para evitar desbordamiento */
+    margin-left: -15px;
+    /* Ajusta el margen negativo para evitar desbordamiento */
+}
+
+.valores-item {
+    margin-bottom: 20px;
+    /* Reduce el margen inferior para ajustar el espacio */
+}
+
+.valores-img {
+    width: 100%;
+    /* Ajusta el ancho de la imagen al contenedor */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    max-height: 150px;
+    /* Limita la altura máxima de la imagen */
+    object-fit: cover;
+    /* Asegura que la imagen cubra el contenedor */
+    border-radius: 10px;
+    /* Bordes redondeados para las imágenes */
+}
+
+.valores-title {
+    font-size: 1.4rem;
+    /* Ajusta el tamaño del título */
+    font-weight: bold;
+    /* Hace que el título sea negrita */
+    color: #2c3e50;
+    /* Color destacado para los subtítulos */
+    margin-top: 10px;
+    /* Margen superior para separar el título de la imagen */
+}
+
+@media (max-width: 767px) {
+    .valores-item {
+        margin-bottom: 15px;
+        /* Reduce el margen en dispositivos móviles */
+    }
+
+    .valores-img {
+        max-height: 120px;
+        /* Ajusta la altura máxima en dispositivos móviles */
+    }
+}
+
+.fixed-highlight {
+    position: fixed;
+    /* Fija la sección en la pantalla */
+    bottom: 0;
+    /* Posiciona la sección en la parte inferior de la pantalla */
+    left: 0;
+    /* Alinea la sección al borde izquierdo */
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho */
+    background-color: #ffffff;
+    /* Fondo blanco */
+    color: #ffffff;
+    /* Texto blanco para contraste */
+    padding: 65px 100px;
+    /* Espaciado interno ajustado */
+    display: flex;
+    /* Usa Flexbox para la disposición */
+    justify-content: space-between;
+    /* Distribuye el contenido horizontalmente */
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    border-top: 3px solid #479047;
+    /* Línea superior para un toque adicional */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra para el efecto de elevación */
+    z-index: 1000;
+    /* Asegura que la sección esté sobre otros elementos */
+    height: auto;
+    /* Ajusta la altura automática según el contenido */
+    max-height: 100px;
+    /* Limita la altura máxima para reducir el espacio */
+    overflow: hidden;
+    /* Oculta el contenido que exceda la altura máxima */
+}
+
+.fixed-highlight .content-left {
+    flex: 1;
+    /* Permite que el contenido izquierdo ocupe el espacio disponible */
+    padding-right: 20px;
+    /* Espaciado adicional en el lado derecho */
+}
+
+.fixed-highlight h2 {
+    font-size: 1.75rem;
+    /* Tamaño de fuente ajustado del encabezado */
+    margin: 0 0 10px 0;
+    /* Margen superior e inferior ajustado */
+}
+
+.fixed-highlight p {
+    font-size: 1rem;
+    /* Tamaño de fuente del párrafo */
+    margin: 0;
+    /* Elimina el margen para reducir la altura */
+    color: black;
+    /* Texto negro para el párrafo */
+    line-height: 1.4;
+    /* Mejora la legibilidad del texto */
+    padding-left: 30px;
+    /* Espaciado adicional en el lado izquierdo */
+    padding-right: 10px;
+    /* Espaciado adicional en el lado derecho */
+}
+
+.btn-highlight {
+    background-color: black;
+    /* Fondo del botón en gris oscuro */
+    color: #ecf0f1;
+    /* Texto blanco en el botón */
+    border: none;
+    /* Sin bordes para un look limpio */
+    border-radius: 10px;
+    /* Bordes redondeados del botón */
+    padding: 12px 24px;
+    /* Espaciado interno del botón ajustado */
+    font-size: 1.3rem;
+    /* Tamaño de fuente del botón ajustado */
+    margin: 40px;
+    /* Espaciado entre el texto y el botón */
+    display: flex;
+    /* Usa Flexbox para centrar el contenido del botón */
+    align-items: center;
+    /* Centra verticalmente el texto del botón */
+    justify-content: center;
+    /* Centra horizontalmente el texto del botón */
+}
+
+.btn-highlight:hover {
+    background-color: #ffffff;
+    /* Fondo del botón más oscuro al pasar el cursor */
+    color: black !important;
+    /* Texto blanco en el hover */
+}
+
+/* Ajusta el padding-bottom del cuerpo para evitar que el footer quede cubierto */
+body {
+    padding-bottom: 120px;
+    /* Añade espacio en la parte inferior igual a la altura de la sección fija */
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    /* Fondo negro */
+    color: #ffffff;
+    /* Texto blanco */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera para el efecto de elevación */
+    border-top: 1px solid #ffffff;
+    /* Línea superior blanca para un toque adicional */
+    margin-top: auto;
+    /* Asegura que el footer se mantenga en la parte inferior si el contenido es corto */
+}
+
+footer .container {
+    max-width: 1200px;
+    /* Ajusta el ancho máximo para la alineación del contenido */
+    margin: 0 auto;
+    /* Centra el contenido horizontalmente */
+    padding: 0 15px;
+    /* Añade un espaciado interno horizontal */
+}
+
+footer .text-muted {
+    color: #ffffff;
+    /* Ajusta el color del texto para el footer */
+}
+
+footer .nav a {
+    color: #ffffff;
+    /* Ajusta el color de los enlaces para el footer */
+}
+
+footer .nav a:hover {
+    color: #cccccc;
+    /* Color de los enlaces en hover */
+}
+
+footer .col-md-4 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.small-text {
+    font-size: 1.2rem !important;
+    /* Ajusta el tamaño según sea necesario */
+}
