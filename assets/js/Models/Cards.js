@@ -11,8 +11,29 @@ class Game {
     this.propertiesPromise = this.getDataProperties();
     this.departmentsPromise = this.getDepartments();
 
+
     this.initializeGame();
   }
+
+  showCardsSpinner() {
+    const spinnerContainer = document.getElementById('cardsSpinnerContainer');
+    spinnerContainer.style.display = 'flex'; // Mostrar el spinner
+    spinnerContainer.style.height = '200px'; // Ajustar la altura del contenedor al mismo tamaño que las cards
+    spinnerContainer.style.justifyContent = 'center'; // Centrar el spinner horizontalmente
+    spinnerContainer.style.alignItems = 'center'; // Centrar el spinner verticalmente
+    document.getElementById('contGame').style.visibility = 'hidden'; // Ocultar las cards temporalmente
+  }
+
+  hideCardsSpinner() {
+    const spinnerContainer = document.getElementById('cardsSpinnerContainer');
+
+    // Esperar un tiempo adicional antes de ocultar el spinner
+    setTimeout(() => {
+      spinnerContainer.style.display = 'none'; // Ocultar el spinner
+      document.getElementById('contGame').style.visibility = 'visible'; // Mostrar las cards
+    }, 100); // Puedes ajustar este tiempo de espera
+  }
+
 
   async initializeGame() {
     try {
@@ -68,23 +89,27 @@ class Game {
   }
 
   renderCards(arrayJson) {
-    this.contGame.innerHTML = '';
+    this.showCardsSpinner(); // Mostrar el spinner
 
-    let cardsHtml = '';
-    arrayJson.forEach(property => {
-      const firstImage = property.imagenes && property.imagenes.length > 0 ? property.imagenes[0] : "default-image.jpg";
-      let departmentName = "Desconocido";
-      let municipalityName = "Desconocido";
-      if (this.departments && this.departments[property.departamento]) {
-        departmentName = this.departments[property.departamento].nombre;
-        if (property.municipio) {
-          municipalityName = property.municipio;
+    // Simular un tiempo de carga
+    setTimeout(() => {
+      this.contGame.innerHTML = '';
+
+      let cardsHtml = '';
+      arrayJson.forEach(property => {
+        const firstImage = property.imagenes && property.imagenes.length > 0 ? property.imagenes[0] : "default-image.jpg";
+        let departmentName = "Desconocido";
+        let municipalityName = "Desconocido";
+        if (this.departments && this.departments[property.departamento]) {
+          departmentName = this.departments[property.departamento].nombre;
+          if (property.municipio) {
+            municipalityName = property.municipio;
+          }
         }
-      }
 
-      const isRented = property.estado === 'arrendado';
+        const isRented = property.estado === 'arrendado';
 
-      cardsHtml += `
+        cardsHtml += `
             <div class="col-md-3 mb-3 ${this.contCardClass}">
                 <div class="card" style="border: none;"
                     data-description="${property.descripcion || ''}"
@@ -112,10 +137,12 @@ class Game {
                     </div>
                 </div>
             </div>`;
-    });
+      });
+      this.contGame.innerHTML = `<div class="row">${cardsHtml}</div>`;
+      this.addClickEventToCards(); // Asegúrate de añadir los eventos después de renderizar las cards
 
-    this.contGame.innerHTML = `<div class="row">${cardsHtml}</div>`;
-    this.addClickEventToCards(); // Asegúrate de añadir los eventos después de renderizar las cards
+      this.hideCardsSpinner(); // Ocultar el spinner
+    }, 2000); // Tiempo simulado para la carga
   }
 
   addClickEventToCards() {

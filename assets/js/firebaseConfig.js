@@ -1,6 +1,10 @@
+// Importar módulos de Firebase necesarios
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getAuth, updatePassword, sendEmailVerification, deleteUser } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getDatabase, ref, set, update, remove } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getStorage, ref as storageRef, deleteObject } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
 
+// Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDSe_2lz8x6UVV5gcLGuLD0aguzc3voMqY",
     authDomain: "conexion-agraria.firebaseapp.com",
@@ -14,5 +18,8 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const database = getDatabase(app);
+const storage = getStorage(app);
 
-export { auth };
+// Exportar las instancias y funciones necesarias
+export { auth, database, storage, ref, set, update, remove, storageRef, deleteObject, updatePassword, sendEmailVerification, deleteUser };

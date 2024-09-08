@@ -34,7 +34,7 @@ html {
 /* Para el texto secundario */
 .custom-text2 {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50px;
   /* Ajusta este valor según el espacio deseado desde el borde derecho */
   text-align: left;
@@ -553,25 +553,31 @@ input:invalid+.invalid-feedback {
   /* Agrega otros estilos que necesites */
 }
 
-/* Estilos del sidebar */
+/* Estilos del Sidebar */
 .sidebar {
-  margin-top: 60px;
-  /* Ajusta este valor para que coincida con la altura de tu navbar */
   position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
-  background-color: #f8f9fa;
+  bottom: 0;
+  right: 0;
+  width: 350px;
+  height: calc(100% - 60px);
+  /* Ajusta 60px según la altura de tu navbar */
+  background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-  transition: right 0.3s ease;
-  padding: 20px;
-  z-index: 1000;
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  overflow-y: auto;
+  transform: translateX(100%);
+  /* Inicialmente oculto */
 }
 
+.sidebar.open {
+  transform: translateX(0);
+  /* Mostrar el sidebar */
+}
+
+
 .sidebar-content {
-  display: flex;
-  flex-direction: column;
+  padding: 20px;
 }
 
 .sidebar h2 {
@@ -586,54 +592,292 @@ input:invalid+.invalid-feedback {
   width: 100%;
 }
 
-.sidebar.show {
-  right: 0;
-}
-
 body.sidebar-open {
   overflow: hidden;
 }
 
+/* Margen superior ajustado para formularios y títulos */
 #loginForm,
-#registerForm {
-  margin-top: 30px;
-  /* Aumenta este valor según sea necesario */
-}
-
+#registerForm,
 #sidebarTitle {
   margin-top: 30px;
-  /* Si también quieres bajar el título */
 }
 
+/* Ajustes de estilo para los labels y inputs */
 #loginForm label,
 #registerForm label {
   font-size: 1.2rem;
-  /* Ajusta este valor según lo necesites */
 }
 
 #loginForm input,
 #registerForm input {
   font-size: 1.5rem;
-  /* Aumenta el tamaño del texto dentro de los inputs */
-}
-
-#loginForm input,
-#registerForm input {
   border-radius: 8px;
-  /* Ajusta este valor para redondear más o menos las esquinas */
 }
 
-/* Estilo para los botones de Iniciar Sesión y Registrarse */
+/* Estilo para los botones dentro del Sidebar */
 #loginSidebar .btn-primary,
 #loginSidebar .btn-link {
   font-size: 1.2rem;
-  /* Ajusta el tamaño de la fuente según sea necesario */
 }
 
 /* Asegúrate de que el botón de "Registrarse" también tenga el mismo estilo */
 #loginSidebar .btn-primary.btn-block {
   font-size: 1.2rem;
-  /* Ajusta el tamaño de la fuente para el botón de registrarse */
+}
+
+
+#changePasswordSection h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#passwordChangeForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#passwordChangeForm label {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+#passwordChangeForm input {
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#passwordChangeForm button[type="submit"] {
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#passwordChangeForm button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+#passwordChangeForm button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+#passwordChangeMessage {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Asegúrate de que los inputs dentro del formulario de cambio de contraseña se vean consistentes con los demás formularios */
+#passwordChangeForm input {
+  font-size: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Estilos generales para los formularios */
+form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Estilos para las etiquetas de los formularios */
+form .form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para los inputs de los formularios */
+form .form-control {
+  border: rgb(195, 195, 195) solid 0.8px;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+}
+
+form .form-control:focus {
+  box-shadow: 0 0 8px rgba(7, 7, 7, 0.2);
+}
+
+/* Estilos para los botones */
+form .btn {
+  background-color: #000;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+form .btn-link {
+  background-color: white;
+  color: #237d20;
+  font-size: 14px;
+  padding: 5px;
+}
+
+form .btn-link:hover {
+  color: #219c1b;
+  text-decoration: none;
+}
+
+/* General */
+#userProfile {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.profile-image-container {
+  position: relative;
+  /* Necesario para el posicionamiento absoluto del ícono de la cámara */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  width: 150px;
+  /* Aumenta el tamaño de la imagen según sea necesario */
+  height: 150px;
+  /* Aumenta el tamaño de la imagen según sea necesario */
+  border-radius: 50%;
+  /* Mantiene la imagen en forma circular */
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
+  /* Añade sombra a la imagen */
+  object-fit: cover;
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 5px;
+  /* Ajusta la distancia desde el fondo según sea necesario */
+  right: 40px;
+  /* Ajusta la distancia desde el lado derecho según sea necesario */
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  /* Ajusta el tamaño del ícono si es necesario */
+  height: 35px;
+  /* Ajusta el tamaño del ícono si es necesario */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+  /* Asegura que el ícono esté encima de otros elementos */
+}
+
+.camera-icon:hover {
+  transform: scale(1.2);
+}
+
+.camera-icon i {
+  font-size: 20px;
+  /* Ajusta el tamaño del ícono si es necesario */
+  color: #27cb21;
+}
+
+.profile-image-container input[type="file"] {
+  display: none;
+}
+
+/* Estilo de los campos de perfil */
+.profile-field {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.profile-field i {
+  margin-right: 10px;
+  color: #237d20;
+}
+
+.profile-field-input {
+  border: none;
+  background: none;
+  font-size: 1em;
+  flex: 1;
+}
+
+.edit-icon,
+.save-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.save-icon {
+  color: #28a745;
+}
+
+/* Estilo para enlaces y botones */
+.profile-links {
+  margin: 20px 0;
+}
+
+.profile-links a {
+  display: block;
+  color: #28a745;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
+.btn-logout {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.btn-logout:hover {
+  background-color: #949090;
 }
 
 /* Estilos para el navbar */
@@ -786,36 +1030,146 @@ input:focus {
   /* Quita el borde de enfoque predeterminado si es necesario */
 }
 
-/* CSS */
-.spinner-overlay {
-  position: fixed;
+/* Estilos para el Spinner de las Cards */
+#cardsSpinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+#cardsSpinner {
+  display: flex;
+  gap: 8px;
+}
+
+#contGame {
+  visibility: hidden;
+}
+
+#cardsSpinnerContainer.hidden {
+  display: none;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  background-color: rgb(100, 190, 100);
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+/* Estilos para el Spinner del Sidebar */
+#sidebarSpinnerContainer {
+  position: absolute;
+  /* Para que se superponga al contenido */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.7);
   display: flex;
+  /* Por defecto oculto */
   justify-content: center;
+  /* Centramos el spinner horizontalmente */
   align-items: center;
-  z-index: 9999;
-  /* Asegúrate de que el spinner esté encima de todo */
+  /* Centramos el spinner verticalmente */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Un fondo semitransparente para cubrir el contenido */
+  z-index: 999;
+  /* Para asegurarnos de que se superponga a todo */
 }
 
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
+#sidebarSpinner {
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(100, 190, 100);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
+  animation: bounce 1s infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: scale(1);
   }
 
-  100% {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.5);
   }
+}
+
+
+/* Estilo para el ícono de lápiz */
+.edit-icon {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #555;
+  /* Puedes ajustar el color */
+}
+
+/* Estilo para el ícono de validación (check) */
+.save-icon {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #32CD32;
+  /* Verde claro (Lime Green) */
+  font-size: 18px;
+  /* Ajusta el tamaño según sea necesario */
+  transition: color 0.3s ease;
+}
+
+.save-icon:hover {
+  color: #2E8B57;
+  /* Verde más oscuro al pasar el cursor */
+}
+
+.profile-links {
+  margin-top: 10px;
+}
+
+.profile-links a {
+  font-size: 9px;
+  display: block;
+  color: #2E8B57;
+  text-decoration: none;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
 }

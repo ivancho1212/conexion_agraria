@@ -10,6 +10,8 @@
   <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
   <link href="./assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 
   <title>CONEXION AGRARIA</title>
 </head>
@@ -42,7 +44,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false"> <img src="assets/img/icons/icono_campecino.png" alt="Icono de Perfil"
-                class="profile-icon">
+                class="profile-icon" id="navbarProfileIcon">
             </a>
             <ul class="dropdown-menu" aria-labelledby="profileDropdown">
               <li><a class="dropdown-item" href="#" id="loginButton">Iniciar Sesión</a></li>
@@ -80,8 +82,21 @@
     No hay coincidencias
   </div>
 
-  <!-- Contenedor de tarjetas -->
-  <div class="container" style="margin-top: 30px;" id="contGame"></div>
+  <!-- Spinner para las cards -->
+  <div id="cardsSpinnerContainer">
+    <div id="cardsSpinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+
+  <!-- Contenedor de las cards (inicialmente invisible) -->
+  <div id="contGame" class="container" style="visibility: hidden; margin-top: 30px;"></div>
+
+
+
 
   <div class="row align-items-center">
     <div class="col-md-12 position-relative text-center">
@@ -212,14 +227,14 @@
       <!-- Formulario de Inicio de Sesión -->
       <form id="loginForm">
         <div class="form-group">
-          <label for="emailInput">Correo Electrónico</label>
-          <input type="email" id="emailInput" class="form-control" placeholder="Ingresa tu correo electrónico">
+          <label for="loginEmail">Correo Electrónico</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="Ingresa tu correo electrónico">
         </div>
         <div class="form-group">
-          <label for="passwordInput">Contraseña</label>
-          <input type="password" id="passwordInput" class="form-control" placeholder="Ingresa tu contraseña">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="Ingresa tu contraseña">
         </div>
-        <button type="submit" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
+        <button type="submit" id="submitLogin" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
         <button type="button" class="btn btn-link mt-2" id="forgotPasswordButton">¿Olvidaste tu contraseña?</button>
         <button type="button" class="btn btn-link mt-2" id="showRegisterFormButton">¿No tienes cuenta?
           Regístrate</button>
@@ -232,6 +247,27 @@
           <input type="email" id="registerEmail" class="form-control" placeholder="Ingresa tu correo electrónico">
         </div>
         <div class="form-group">
+          <label for="registerNombre">Nombre Completo</label>
+          <input type="text" id="registerNombre" class="form-control" placeholder="Ingresa tu nombre completo">
+        </div>
+        <div class="form-group">
+          <label for="registerNumeroDocumento">Número de Documento</label>
+          <input type="text" id="registerNumeroDocumento" class="form-control"
+            placeholder="Ingresa tu número de documento">
+        </div>
+        <div class="form-group">
+          <label for="registerRole">Rol</label>
+          <select id="registerRole" class="form-control">
+            <option value="role_cliente">Cliente</option>
+            <option value="role_propietario">Propietario</option>
+            <!-- Puedes añadir más opciones si es necesario -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="registerTelefono">Teléfono</label>
+          <input type="text" id="registerTelefono" class="form-control" placeholder="Ingresa tu número de teléfono">
+        </div>
+        <div class="form-group">
           <label for="registerPassword">Contraseña</label>
           <input type="password" id="registerPassword" class="form-control" placeholder="Ingresa tu contraseña">
         </div>
@@ -239,20 +275,107 @@
           <label for="registerConfirmPassword">Confirmar Contraseña</label>
           <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirma tu contraseña">
         </div>
-        <button type="submit" class="btn btn-primary btn-block mt-3">Registrarse</button>
+        <button type="submit" id="submitRegister" class="btn btn-primary btn-block mt-3">Registrarse</button>
         <button type="button" class="btn btn-link mt-2" id="showLoginFormButton">¿Ya tienes cuenta? Inicia
           Sesión</button>
       </form>
 
-      <!-- Perfil de Usuario (Oculto por defecto) -->
+      <!-- Perfil de Usuario (Visible tras iniciar sesión) -->
       <div id="userProfile" style="display: none;">
-        <h3>Bienvenido, <span id="userName"></span></h3>
-        <p><strong>Correo:</strong> <span id="userEmail"></span></p>
-        <p><strong>Teléfono:</strong> <span id="userPhone"></span></p>
-        <button id="logoutButton" class="btn btn-danger btn-block mt-3">Cerrar Sesión</button>
+        <div class="profile-header"></div>
+        <div class="profile-content">
+          <div class="profile-image-container">
+            <img src="assets/img/icons/icono_campecino-gris.png" alt="Foto de Perfil" id="profileImage"
+              class="profile-image">
+            <label for="uploadImage" class="camera-icon">
+              <i class="bi bi-camera"></i>
+            </label>
+            <input type="file" id="uploadImage" style="display: none;">
+          </div>
+
+          <!-- Nombre -->
+          <div class="profile-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="editFirstName" class="profile-field-input" style="display: none;">
+            <span id="profileFirstName">Juan</span>
+            <i class="fas fa-pencil-alt edit-icon" id="editFirstNameIcon"></i>
+            <i class="fas fa-check save-icon" id="saveFirstNameIcon" style="display: none;"></i>
+          </div>
+
+          <!-- Documento -->
+          <div class="profile-field">
+            <i class="fas fa-id-card"></i>
+            <input type="text" id="editDocument" class="profile-field-input" style="display: none;">
+            <span id="profileDocument">123456789</span>
+            <i class="fas fa-pencil-alt edit-icon" id="editDocumentIcon"></i>
+            <i class="fas fa-check save-icon" id="saveDocumentIcon" style="display: none;"></i>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="profile-field">
+            <i class="fas fa-phone"></i>
+            <input type="text" id="editPhone" class="profile-field-input" style="display: none;">
+            <span id="profilePhone">+57 300 123 4567</span>
+            <i class="fas fa-pencil-alt edit-icon" id="editPhoneIcon"></i>
+            <i class="fas fa-check save-icon" id="savePhoneIcon" style="display: none;"></i>
+          </div>
+
+          <!-- Email -->
+          <div class="profile-field">
+            <i class="fas fa-envelope"></i>
+            <span id="userName">email@example.com</span>
+          </div>
+
+          <!-- Cambiar Contraseña como enlaces debajo del correo -->
+          <div class="profile-links">
+            <a href="#" id="changePasswordButton">Cambiar Contraseña</a>
+            <a href="#" id="disableAccountButton">Inhabilitar Cuenta</a> <!-- Nuevo botón -->
+          </div>
+
+
+          <!-- Botón de Cerrar Sesión -->
+          <button id="profileLogoutButton" class="btn btn-logout">Cerrar Sesión</button>
+
+        </div>
       </div>
+
+      <!-- Contenedor del spinner -->
+      <div id="sidebarSpinnerContainer">
+        <div id="sidebarSpinner">
+          <div class="sidebar-dot"></div>
+          <div class="sidebar-dot"></div>
+          <div class="sidebar-dot"></div>
+        </div>
+      </div>
+
+      <div id="changePasswordSection" style="display: none;">
+        <form id="passwordChangeForm">
+          <h3>Cambiar Contraseña</h3>
+          <label for="email">Correo Electrónico:</label>
+          <input id="email" class="form-control" type="email" name="email" placeholder="Ingresa tu correo electrónico"
+            required>
+
+          <!-- Asegúrate de que este ID coincida con el que estás usando en JavaScript -->
+
+          <label for="currentPassword">Contraseña Actual:</label>
+          <input type="password" id="currentPassword" placeholder="Ingresa tu contraseña actual" required>
+
+          <label for="newPassword">Nueva Contraseña:</label>
+          <input type="password" id="newPassword" placeholder="Ingresa tu nueva contraseña" required>
+
+          <label for="confirmPassword">Confirmar Nueva Contraseña:</label>
+          <input type="password" id="confirmPassword" placeholder="Ingresa de nuevo tu nueva contraseña" required>
+
+          <button type="submit">Cambiar Contraseña</button>
+          <p id="passwordChangeMessage"></p>
+          <button type="button" id="hideChangePasswordButton">Cerrar</button>
+        </form>
+      </div>
+
+
     </div>
   </div>
+
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -265,11 +388,14 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="assets/js/Models/Cards.js"></script>
-  <script type="module" src="assets/js/firebaseConfig.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
   <script type="module" src="assets/js/profileSidebar.js"></script>
+  <script type="module" src="assets/js/profileEdit.js"></script>
+  <script type="module" src="assets/js/uploadProfileImage.js"></script>
+  <script type="module" src="assets/js/changePassword.js"></script>
+  <script src="assets/js/Models/Cards.js"></script>
   <script src="assets/js/firebase.js"></script>
-  <script src="assets/js/profileSidebar.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/form.js"></script>
   <script src="assets/js/filter.js"></script>
